@@ -69,11 +69,13 @@
             this.txt_No.Name = "txt_No";
             this.txt_No.Size = new System.Drawing.Size(218, 28);
             this.txt_No.TabIndex = 3;
+            this.txt_No.TextChanged += new System.EventHandler(this.txt_No_TextChanged);
             // 
             // txt_Password
             // 
             this.txt_Password.Location = new System.Drawing.Point(126, 114);
             this.txt_Password.Name = "txt_Password";
+            this.txt_Password.PasswordChar = '*';
             this.txt_Password.Size = new System.Drawing.Size(218, 28);
             this.txt_Password.TabIndex = 4;
             // 
@@ -89,6 +91,7 @@
             this.Controls.Add(this.btn_SignUp);
             this.Name = "frm_SignUp";
             this.Text = "注册";
+            this.Load += new System.EventHandler(this.frm_SignUp_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -20,6 +20,11 @@ namespace _1_SignUp
 
         private void btn_SignUp_Click(object sender, EventArgs e)
         {
+            if (this.txt_Password.Text=="")
+            {
+                MessageBox.Show("请输入密码！");
+                return;
+            }
             string commandText =
                 $@"INSERT tb_Student (No,Password)
                    VALUES('{this.txt_No.Text}','{this.txt_Password.Text}');";
@@ -34,7 +39,19 @@ namespace _1_SignUp
             {
                 MessageBox.Show("该用户已存在！注册失败！");
             }
+
+            txt_No.Text = "";
+            txt_Password.Text = "";
         }
-        
+
+        private void frm_SignUp_Load(object sender, EventArgs e)
+        {
+                btn_SignUp.Enabled = false;
+        }
+
+        private void txt_No_TextChanged(object sender, EventArgs e)
+        {
+            this.btn_SignUp.Enabled = this.txt_No.Text != "";
+        }
     }
 }
